@@ -14,15 +14,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const axios_1 = __importDefault(require("axios"));
-const cheerio_1 = __importDefault(require("cheerio"));
 const router = express_1.default.Router();
+const { load } = require('cheerio');
 router.get('/:username', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { username } = req.params;
         const url = `https://www.codechef.com/users/${username}`;
         const response = yield axios_1.default.get(url);
-        const $ = cheerio_1.default.load(response.data);
-        const rating = $('.rating-number').text();
+        const $ = load(response.data);
+        const rating = $('.rating-number').text().substring(0, 4);
         res.json({ rating });
     }
     catch (error) {
