@@ -3,6 +3,7 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 
 const router = express.Router();
+const { load } = require('cheerio');
 
 router.get('/:username', async (req: Request, res: Response) => {
   try {
@@ -11,7 +12,7 @@ router.get('/:username', async (req: Request, res: Response) => {
 
     const response = await axios.get(url);
 
-    const $ = cheerio.load(response.data);
+    const $ = load(response.data);
 
     const rating = $('.info ul li span').first().text();
 
