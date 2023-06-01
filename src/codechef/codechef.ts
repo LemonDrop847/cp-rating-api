@@ -13,7 +13,7 @@ router.get('/:username', async (req: Request, res: Response) => {
 
     const $ = cheerio.load(response.data);
 
-    const rating = $('.rating-number').text();
+    const rating = $('.rating-number').text().substring(0, 4);
 
     res.json({ rating });
   } catch (error) {
