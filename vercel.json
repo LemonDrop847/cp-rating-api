@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "dist/server.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/codechef/:username", "dest": "/api/codechef/:username" },
+      { "src": "/codeforces/:username", "dest": "/api/codeforces/:username" }
+    ]
+  }
+  
