@@ -1,11 +1,14 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "dist/server.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/codechef/:username", "dest": "/api/codechef/:username" },
-      { "src": "/codeforces/:username", "dest": "/api/codeforces/:username" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/server.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/codechef/:username", "dest": "/src/codechef/codechef.ts" },
+    { "src": "/codeforces/:username", "dest": "/src/codeforces/codeforces.ts" },
+    { "src": "/.*", "dest": "src/server.ts" }
+  ]
+}
