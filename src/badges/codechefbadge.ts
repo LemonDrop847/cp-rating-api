@@ -4,13 +4,6 @@ import axios from "axios";
 const router = express.Router();
 const { load } = require("cheerio");
 
-function getRatingColor(backgroundColor): string {
-  if (backgroundColor) {
-    return backgroundColor.replace("#", "");
-  }
-  return "";
-}
-
 router.get("/:username", async (req: Request, res: Response) => {
   try {
     const { username } = req.params;
@@ -20,9 +13,7 @@ router.get("/:username", async (req: Request, res: Response) => {
     const $ = load(response.data);
     const ratingSpan = $(".rating-star span");
     const backgroundColor = ratingSpan.css("background-color");
-
     const rating = $(".rating-number").text().substring(0, 4);
-    const color = getRatingColor(backgroundColor);
     const badge = {
         schemaVersion: 1,
         label: 'CodeChef',
