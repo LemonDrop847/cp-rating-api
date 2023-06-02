@@ -27,10 +27,10 @@ router.get("/:username", async (req: Request, res: Response) => {
         schemaVersion: 1,
         label: 'CodeChef',
         message: rating,
-        color: color,
+        color: backgroundColor,
         namedLogo: 'codechef',
-        logoColor: 'f5f5dc',
-        labelColor: '7b5e47',
+        logoColor: '#f5f5dc',
+        labelColor: '#7b5e47',
       };
     res.json(badge);
   } catch (error) {
