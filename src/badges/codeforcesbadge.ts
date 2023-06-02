@@ -26,10 +26,7 @@ router.get("/:username", async (req: Request, res: Response) => {
 
     const user = userData.result[0];
     const rating = user.rating.toString();
-    const titlePhoto = user.titlePhoto;
     const rank = user.rank.toLowerCase();
-    const handle = user.handle;
-    const maxRating = user.maxRating.toString();
     const color = rankColors[rank] || '';
     const badge = {
         schemaVersion: 1,
@@ -37,7 +34,6 @@ router.get("/:username", async (req: Request, res: Response) => {
         message: rating,
         color: color,
         namedLogo: 'codeforces',
-        logoColor: '#f5f5dc',
       };
     res.json(badge);
   } catch (error) {
