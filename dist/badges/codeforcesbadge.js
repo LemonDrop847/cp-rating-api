@@ -16,16 +16,16 @@ const express_1 = __importDefault(require("express"));
 const axios_1 = __importDefault(require("axios"));
 const router = express_1.default.Router();
 const rankColors = {
-    'legendary grandmaster': 'ff0000',
-    'international grandmaster': 'ff0000',
-    'master': 'ff8c00',
-    'candidate master': '00a0a0',
-    'expert': '0000ff',
-    'specialist': '03a89e',
-    'pupil': '008000',
-    'newbie': '808080'
+    'legendary grandmaster': '#ff0000',
+    'international grandmaster': '#ff0000',
+    'master': '#ff8c00',
+    'candidate master': '#a0a',
+    'expert': '#0000ff',
+    'specialist': '#03a89e',
+    'pupil': '#008000',
+    'newbie': '#808080'
 };
-router.get('/:username', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get("/:username", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { username } = req.params;
         const apiUrl = `https://codeforces.com/api/user.info?handles=${username}`;
@@ -36,16 +36,20 @@ router.get('/:username', (req, res) => __awaiter(void 0, void 0, void 0, functio
         }
         const user = userData.result[0];
         const rating = user.rating.toString();
-        const titlePhoto = user.titlePhoto;
         const rank = user.rank.toLowerCase();
-        const handle = user.handle;
-        const maxRating = user.maxRating.toString();
         const color = rankColors[rank] || '';
-        res.json({ rating, titlePhoto, rank, handle, maxRating, color });
+        const badge = {
+            schemaVersion: 1,
+            label: 'Codeforces',
+            message: rating,
+            color: color,
+            namedLogo: 'codeforces',
+        };
+        res.json(badge);
     }
     catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Failed to retrieve user information' });
+        res.status(500).json({ error: "Failed to retrieve Codechef rating" });
     }
 }));
 exports.default = router;
