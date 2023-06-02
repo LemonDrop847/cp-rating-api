@@ -28,7 +28,7 @@ router.get("/:username", async (req: Request, res: Response) => {
         label: 'CodeChef',
         message: rating,
         color: color,
-        logo: 'codechef',
+        namedLogo: 'codechef',
         logoColor: 'f5f5dc',
         labelColor: '7b5e47',
       };
