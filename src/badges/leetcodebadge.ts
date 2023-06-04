@@ -46,6 +46,8 @@ router.get("/:username", async (req: Request, res: Response) => {
         message: problems,
         color: '#a0a',
         namedLogo: 'leetcode',
+        labelColor: '#000000',
+        logoColor:'#d16c06',
       };
     res.json(badge);
   } catch (error) {
