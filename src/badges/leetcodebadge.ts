@@ -2,12 +2,11 @@ import express, { Request, Response } from "express";
 import axios from "axios";
 
 const router = express.Router();
-const { load } = require("cheerio");
 
 router.get("/:username", async (req: Request, res: Response) => {
   try {
     const { username } = req.params;
-    const url = 'https://leetcode.com/graphql';
+    const url = 'https://leetcode.com/graphql';    
     const gqlBody = {
       query: `query getUserProfile($username: String!) {
         allQuestionsCount {
@@ -19,10 +18,6 @@ router.get("/:username", async (req: Request, res: Response) => {
           profile {
             reputation
             ranking
-          }
-          languages: languageProblemCount {
-            languageName
-            problemsSolved
           }
           submitStats: submitStatsGlobal {
             acSubmissionNum {
@@ -42,24 +37,21 @@ router.get("/:username", async (req: Request, res: Response) => {
 
     const user = data.username;
     const rank = data.profile.ranking;
-    const problemsSolved = data.submitStats.acSubmissionNum[0].count;
-    const languages = data.languages;
     const totalProblems = response.data.data.allQuestionsCount[0].count;
-    const submissions = data.submitStats.acSubmissionNum;
-
-    const formattedData = {
-      user,
-      rank,
-      problemsSolved,
-      languages,
-      totalProblems,
-      submissions,
-    };
-
-    res.json(formattedData);
+    const problemsSolved = data.submitStats.acSubmissionNum[0].count;
+    const problems = problemsSolved+'/'+totalProblems;
+    const badge = {
+        schemaVersion: 1,
+        label: 'LeetCode',
+        message: problems,
+        color: '#a0a',
+        namedLogo: 'leetcode',
+      };
+    res.json(badge);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to retrieve LeetCode data' });
+    res.status(500).json({ error: "Failed to retrieve Leetcode rating" });
   }
 });
+
 export default router;
