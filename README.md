@@ -72,7 +72,7 @@ Base URL- https://cp-rating-api.vercel.app/
     }
     ```
 
-To get <i>shields.io</i> codechef or codeforeces badge with your rating, use these examples-
+To get <i>shields.io</i> badges with your rating, use these examples-
 
 - Codechef
 
