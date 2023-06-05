@@ -18,7 +18,16 @@ Base URL- https://cp-rating-api.vercel.app/
     Response-
     {
     "rating": [rating],
-    "color": [rating color]
+    "country": [country],
+    "globalRank": [global rank],
+    "countryRank": [country rank],
+    "puzzleRating": [puzzle rating],
+    "onevsoneRating": [1v1 rating],
+    "participation": [no of contests],
+    "color": [rating color],
+    "problemsSolved": [completely solved problems],
+    "partialProblems": [partially solved problems],
+    "contests": [ - Array of all contests participated-  ]
     }
     ```
 - ### /codeforces/[username]
