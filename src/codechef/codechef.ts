@@ -14,7 +14,7 @@ router.get("/:username", async (req: Request, res: Response) => {
     const ratingSpan = $(".rating-star span");
     const backgroundColor = ratingSpan.css("background-color");
     const ratingRanksSection = $(".rating-ranks");
-    const country=$(".user-country-name").text();
+    const country = $(".user-country-name").text();
     const rankItems = ratingRanksSection.find("li");
     let countryRank = null;
     let globalRank = null;
@@ -64,10 +64,10 @@ router.get("/:username", async (req: Request, res: Response) => {
     );
     const info = {
       rating: rating,
-      country:country,
+      country: country,
       globalRank: globalRank,
       countryRank: countryRank,
-      puzzleRating:puzzleRating,
+      puzzleRating: puzzleRating,
       onevsoneRating: oneVsRating,
       participation: contestct,
       color: backgroundColor,
