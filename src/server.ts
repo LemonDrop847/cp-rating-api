@@ -8,8 +8,8 @@ import leetcodeBadge from "./badges/leetcodebadge";
 
 const app = express();
 const PORT = 3000;
-app.get("/", (res: Response) => {
-  res.sendFile(__dirname + "/static/home.html");
+app.get("/", (_req: Request, res: Response) => {
+  res.sendFile(__dirname + '/static/home.html');
 });
 
 app.use("/codeforces", codeforcesRouter);
