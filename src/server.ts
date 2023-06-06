@@ -5,12 +5,11 @@ import leetcodeRouter from "./leetcode/leetcode";
 import codechefBadge from "./badges/codechefbadge";
 import codeforcesBadge from "./badges/codeforcesbadge";
 import leetcodeBadge from "./badges/leetcodebadge";
-import fs from "fs";
 
 const app = express();
 const PORT = 3000;
-app.get("/", (req: Request, res: Response) => {
-  res.sendFile(__dirname + '/static/home.html');
+app.get("/", (res: Response) => {
+  res.sendFile(__dirname + "/static/home.html");
 });
 
 app.use("/codeforces", codeforcesRouter);
