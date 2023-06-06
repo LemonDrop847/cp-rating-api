@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Competitive Rating API</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      h2 {
+        color: #555;
+      }
+
+      code {
+        background-color: #f5f5f5;
+        font-family: Consolas, monospace;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Competitive Rating API</h1>
+
+    <p>
+      An API endpoint to get competitive programming ratings from various
+      platforms.
+    </p>
+
+    <h2>Current Platforms</h2>
+
+    <p><code> - Codechef - Codeforces - LeetCode </code></p>
+
+    <h1>API Endpoints</h1>
+
+    <p>
+      Base URL -
+      <a href="https://cp-rating-api.vercel.app/"
+        >https://cp-rating-api.vercel.app/</a
+      >
+    </p>
+
+    <h2>Available endpoints</h2>
+
+    <ul>
+      <li>
+        <h3>/codechef/[username]</h3>
+        <p>Response:</p>
+        <code>
+          { "rating": [rating], "country": [country], "globalRank": [global
+          rank], "countryRank": [country rank], "puzzleRating": [puzzle rating],
+          "onevsoneRating": [1v1 rating], "participation": [no of contests],
+          "color": [rating color], "problemsSolved": [completely solved
+          problems], "partialProblems": [partially solved problems], "contests":
+          [ - Array of all contests participated- ] }
+        </code>
+      </li>
+      <li>
+        <h3>/codeforces/[username]</h3>
+        <p>Response:</p>
+        <code>
+          { "rating": [current rating], "titlePhoto": [photoURL], "rank":
+          [current rank], "handle": [username], "maxRating": [max_rating],
+          "color": [rank color] }
+        </code>
+      </li>
+      <li>
+        <h3>/leetcode/[username]</h3>
+        <p>Response:</p>
+        <code>
+          { "user": {username}, "rank": {ranking}, "problemsSolved": {no of
+          problems solved}, "languages": [ { "languageName": {language},
+          "problemsSolved": {no of problems} } ], "totalProblems": {current
+          total problems on leetcode}, "submissions": [ { "difficulty": "All",
+          "count": {no of problems}, "submissions": {total submissions} }, {
+          "difficulty": "Easy", "count": {no of problems}, "submissions": {total
+          submissions} }, { "difficulty": "Medium", "count": {no of problems},
+          "submissions": {total submissions} }, { "difficulty": "Hard", "count":
+          {no of problems}, "submissions": {total submissions} } ] }
+        </code>
+
+        <p>
+          To get <i>shields.io</i> badges with your rating, use these examples:
+        </p>
+      </li>
+      <li>
+        <p>Codechef</p>
+        <code>
+          ![Codechef
+          badge](https://img.shields.io/endpoint?style=for-the-badge&amp;url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fcodechef%2Fbadge%2F[USERNAME]&amp;cacheSeconds=86400)
+        </code>
+        <p>Replace [USERNAME] with codechef username.</p>
+      </li>
+      <li>
+        <p>Codeforces</p>
+        <code>
+          ![Codeforces
+          badge](https://img.shields.io/endpoint?style=for-the-badge&amp;url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fcodeforces%2Fbadge%2F[USERNAME]&amp;cacheSeconds=86400)
+        </code>
+        <p>Replace [USERNAME] with codeforces username.</p>
+      </li>
+      <li>
+        <p>Leetcode</p>
+        <code>
+          ![Leetcode
+          badge](https://img.shields.io/endpoint?style=for-the-badge&amp;url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fleetcode%2Fbadge%2F[USERNAME]&amp;cacheSeconds=86400)
+        </code>
+        <p>Replace [USERNAME] with leetcode username.</p>
+      </li>
+    </ul>
+  </body>
+</html>
