@@ -46,36 +46,36 @@ Base URL- https://cp-rating-api.vercel.app/
     ```
     Response-
     {
-    "user": {username},
-    "rank": {ranking},
-    "problemsSolved": {no of problems solved},
+    "user": [username],
+    "rank": [ranking],
+    "problemsSolved": [no of problems solved],
     "languages": [
         {
-        "languageName": {language},
-        "problemsSolved": {no of problems}
+        "languageName": [language],
+        "problemsSolved": [no of problems]
         }
     ],
-    "totalProblems": {current total problems on leetcode},
+    "totalProblems": [current total problems on leetcode],
     "submissions": [
         {
         "difficulty": "All",
-        "count": {no of problems},
-        "submissions": {total submissions}
+        "count": [no of problems],
+        "submissions": [total submissions]
         },
         {
         "difficulty": "Easy",
-        "count": {no of problems},
-        "submissions": {total submissions}
+        "count": [no of problems],
+        "submissions": [total submissions]
         },
         {
         "difficulty": "Medium",
-        "count": {no of problems},
-        "submissions": {total submissions}
+        "count": [no of problems],
+        "submissions": [total submissions]
         },
         {
         "difficulty": "Hard",
-        "count": {no of problems},
-        "submissions": {total submissions}
+        "count": [no of problems],
+        "submissions": [total submissions]
         }
     ]
     }
