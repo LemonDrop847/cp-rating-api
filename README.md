@@ -40,6 +40,8 @@ Base URL- https://cp-rating-api.vercel.app/
     "handle": [username],
     "maxRating": [max_rating],
     "color": [rank color],
+    "friends": [no of friends],
+    "contributions": [contributions]
     }
     ```
 - ### /leetcode/[username]
