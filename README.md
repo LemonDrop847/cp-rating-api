@@ -88,17 +88,17 @@ To get <i>shields.io</i> badges with your rating, use these examples-
 - Codechef
 
     ```
-    ![Codechef badge](https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fcodechef%2Fbadge%2F[USERNAME]&cacheSeconds=86400)
+    ![Codechef badge](https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fbadge%2Fcodechef%2F[USERNAME]&cacheSeconds=86400)
     ```
     Replace [USERNAME] with codeforces username.
 - Codeforces
     ```
-    ![Codeforces badge](https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fcodeforces%2Fbadge%2F[USERNAME]&cacheSeconds=86400)
+    ![Codeforces badge](https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fbadge%2Fcodeforces%2F[USERNAME]&cacheSeconds=86400)
     ```
     Replace [USERNAME] with codeforces username.
 
 - Leetcode
     ```
-    ![Leetcode badge](https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fleetcode%2Fbadge%2F[USERNAME]&cacheSeconds=86400)
+    ![Leetcode badge](https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fbadge%2Fleetcode%2F[USERNAME]&cacheSeconds=86400)
     ```
     Replace [USERNAME] with leetcode username.
