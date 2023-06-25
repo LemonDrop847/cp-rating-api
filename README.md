@@ -50,6 +50,7 @@ Base URL- https://cp-rating-api.vercel.app/
     {
     "user": [username],
     "rank": [ranking],
+    "avatar": [avatar-url],
     "problemsSolved": [no of problems solved],
     "languages": [
         {
