@@ -19,6 +19,7 @@ router.get("/:username", async (req: Request, res: Response) => {
           profile {
             reputation
             ranking
+            userAvatar
           }
           languages: languageProblemCount {
             languageName
@@ -41,6 +42,7 @@ router.get("/:username", async (req: Request, res: Response) => {
     const data = response.data.data.matchedUser;
 
     const user = data.username;
+    const avatar = data.profile.userAvatar;
     const rank = data.profile.ranking;
     const problemsSolved = data.submitStats.acSubmissionNum[0].count;
     const languages = data.languages;
@@ -50,6 +52,7 @@ router.get("/:username", async (req: Request, res: Response) => {
     const formattedData = {
       user,
       rank,
+      avatar,
       problemsSolved,
       languages,
       totalProblems,
