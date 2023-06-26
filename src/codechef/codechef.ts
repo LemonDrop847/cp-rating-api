@@ -12,6 +12,8 @@ router.get("/:username", async (req: Request, res: Response) => {
     const response = await axios.get(url);
     const $ = load(response.data);
     const ratingSpan = $(".rating-star span");
+    const image=$("img.profileImage");
+    const avatar = image.attr('src');
     const backgroundColor = ratingSpan.css("background-color");
     const ratingRanksSection = $(".rating-ranks");
     const country = $(".user-country-name").text();
@@ -63,6 +65,8 @@ router.get("/:username", async (req: Request, res: Response) => {
         .text()
     );
     const info = {
+      username: username,
+      avatar: avatar,
       rating: rating,
       country: country,
       globalRank: globalRank,
