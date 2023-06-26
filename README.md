@@ -17,6 +17,8 @@ Base URL- https://cp-rating-api.vercel.app/
     ``` 
     Response-
     {
+    "username": [username],
+    "avatar": [profile-image],
     "rating": [rating],
     "country": [country],
     "globalRank": [global rank],
