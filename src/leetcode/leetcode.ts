@@ -21,6 +21,20 @@ router.get("/:username", async (req: Request, res: Response) => {
             ranking
             userAvatar
           }
+          tagProblemCounts {
+            advanced{
+              tagName
+              problemsSolved
+            }
+            intermediate{
+              tagName
+              problemsSolved
+            }
+            fundamental{
+              tagName
+              problemsSolved
+            }
+          }
           languages: languageProblemCount {
             languageName
             problemsSolved
@@ -48,6 +62,7 @@ router.get("/:username", async (req: Request, res: Response) => {
     const languages = data.languages;
     const totalProblems = response.data.data.allQuestionsCount[0].count;
     const submissions = data.submitStats.acSubmissionNum;
+    const topics = data.tagProblemCounts;
 
     const formattedData = {
       user,
@@ -57,6 +72,7 @@ router.get("/:username", async (req: Request, res: Response) => {
       languages,
       totalProblems,
       submissions,
+      topics,
     };
 
     res.json(formattedData);
