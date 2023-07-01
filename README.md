@@ -83,6 +83,17 @@ Base URL- https://cp-rating-api.vercel.app/
         "submissions": [total submissions]
         }
     ]
+    "topics": {
+        "advanced":[
+        [-array of topics with tagName and problemsSolved-]
+        ]
+        "intermediate":[
+        [-array of topics with tagName and problemsSolved-]
+        ]
+        "fundamental":[
+        [-array of topics with tagName and problemsSolved-]
+        ]
+    }
     }
     ```
 
