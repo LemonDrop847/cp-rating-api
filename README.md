@@ -1,6 +1,6 @@
 # Competitive Rating API
 
-An API endpoint to get competitive programming ratings from various platforms.
+An API endpoint to get competitive programming profiles and ratings from various platforms.
 
 ## Current Platforms
 ``` 
