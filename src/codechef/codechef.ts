@@ -4,6 +4,24 @@ import axios from "axios";
 const router = express.Router();
 const { load } = require("cheerio");
 
+function calculateStars(rating: number): number {
+  if (rating < 1400) {
+    return 1;
+  } else if (rating < 1600) {
+    return 2;
+  } else if (rating < 1800) {
+    return 3;
+  } else if (rating < 2000) {
+    return 4;
+  } else if (rating < 2200) {
+    return 5;
+  } else if (rating < 2500) {
+    return 6;
+  } else {
+    return 7;
+  }
+}
+
 router.get("/:username", async (req: Request, res: Response) => {
   try {
     const { username } = req.params;
@@ -12,8 +30,8 @@ router.get("/:username", async (req: Request, res: Response) => {
     const response = await axios.get(url);
     const $ = load(response.data);
     const ratingSpan = $(".rating-star span");
-    const image=$("img.profileImage");
-    const avatar = image.attr('src');
+    const image = $("img.profileImage");
+    const avatar = image.attr("src");
     const backgroundColor = ratingSpan.css("background-color");
     const ratingRanksSection = $(".rating-ranks");
     const country = $(".user-country-name").text();
@@ -64,10 +82,12 @@ router.get("/:username", async (req: Request, res: Response) => {
         .find(".games-rating-box-body-text")
         .text()
     );
+    const stars = calculateStars(parseFloat(rating));
     const info = {
       username: username,
       avatar: avatar,
       rating: rating,
+      stars: stars,
       country: country,
       globalRank: globalRank,
       countryRank: countryRank,
