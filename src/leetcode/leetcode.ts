@@ -7,7 +7,14 @@ const { load } = require("cheerio");
 router.get("/:username", async (req: Request, res: Response) => {
   try {
     const { username } = req.params;
-    const url = 'https://leetcode.com/graphql';
+    const url = "https://leetcode.com/graphql";
+    let headersList = {
+      Accept: "*/*",
+      "User-Agent": "CP-API",
+      "Content-Type": "application/json",
+      "Accept-Encoding": "gzip, deflate, br, zstd",
+      "Accept-Language": "en-US,en;q=0.9",
+    };
     const gqlBody = {
       query: `query getUserProfile($username: String!) {
         allQuestionsCount {
@@ -50,8 +57,14 @@ router.get("/:username", async (req: Request, res: Response) => {
       }`,
       variables: { username },
     };
+    let reqParams = {
+      url: "https://leetcode.com/graphql",
+      method: "POST",
+      headers: headersList,
+      data: JSON.stringify(gqlBody),
+    };
 
-    const response = await axios.post(url, gqlBody);
+    const response = await axios.request(reqParams);
 
     const data = response.data.data.matchedUser;
 
@@ -78,7 +91,7 @@ router.get("/:username", async (req: Request, res: Response) => {
     res.json(formattedData);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to retrieve LeetCode data' });
+    res.status(500).json({ error: "Failed to retrieve LeetCode data" });
   }
 });
 export default router;
