@@ -49,20 +49,20 @@ router.get("/:username", async (req: Request, res: Response) => {
 
     const rating = $(".rating-number").text().substring(0, 4);
     const contestCount = parseInt($(".contest-participated-count b").text());
+    // const fullySolvedCount = parseInt(
+    //   $(".rating-data-section.problems-solved")
+    //   .find('h5:contains("Fully Solved")')
+    //   .text()
+    //   .match(/\((\d+)\)/)[1]
+    //   );
 
-    const fullySolvedCount = parseInt(
-      $(".rating-data-section.problems-solved")
-        .find('h5:contains("Fully Solved")')
-        .text()
-        .match(/\((\d+)\)/)[1]
-    );
-
-    const partialSolvedCount = parseInt(
-      $(".rating-data-section.problems-solved")
-        .find('h5:contains("Partially Solved")')
-        .text()
-        .match(/\((\d+)\)/)[1]
-    );
+    // console.log(fullySolvedCount);
+    // const partialSolvedCount = parseInt(
+    //   $(".rating-data-section.problems-solved")
+    //   .find('h5:contains("Partially Solved")')
+    //   .text()
+    //   .match(/\((\d+)\)/)[1]
+    //   );
 
     const contests: string[] = [];
     $(".rating-data-section.problems-solved strong").each((index, element) => {
@@ -100,8 +100,8 @@ router.get("/:username", async (req: Request, res: Response) => {
       oneVsOneRating,
       participation: contestCount,
       color: backgroundColor,
-      problemsSolved: fullySolvedCount,
-      partialProblems: partialSolvedCount,
+      // problemsSolved: fullySolvedCount,
+      // partialProblems: partialSolvedCount,
       contests,
     };
 
