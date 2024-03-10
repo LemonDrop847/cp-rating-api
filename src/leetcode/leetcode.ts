@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import axios from "axios";
+import "dotenv/config";
 
 const router = express.Router();
 const { load } = require("cheerio");
@@ -9,12 +10,25 @@ router.get("/:username", async (req: Request, res: Response) => {
     const { username } = req.params;
     const url = "https://leetcode.com/graphql";
     let headersList = {
-      Accept: "*/*",
+      accept: "*/*",
       "User-Agent": "CP-API",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br, zstd",
-      "Accept-Language": "en-US,en;q=0.9",
+      "content-type": "application/json",
+      "accept-encoding": "gzip, deflate, br, zstd",
+      "accept-language": "en-US,en;q=0.9",
+      "random-uuid": "80e12f5a-e1f3-623e-192e-bcd1a6f25fe3",
+      authorization: "",
+      "sec-ch-ua":
+        '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": '"Windows"',
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      Referer: process.env.URL,
+      cookie: process.env.COOKIE,
     };
+
     const gqlBody = {
       query: `query getUserProfile($username: String!) {
         allQuestionsCount {
