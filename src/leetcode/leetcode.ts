@@ -72,7 +72,7 @@ router.get("/:username", async (req: Request, res: Response) => {
       variables: { username },
     };
     let reqParams = {
-      url: "https://leetcode.com/graphql",
+      url: url,
       method: "POST",
       headers: headersList,
       data: JSON.stringify(gqlBody),

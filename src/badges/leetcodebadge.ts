@@ -6,7 +6,26 @@ const router = express.Router();
 router.get("/:username", async (req: Request, res: Response) => {
   try {
     const { username } = req.params;
-    const url = 'https://leetcode.com/graphql';    
+    const url = 'https://leetcode.com/graphql';
+    let headersList = {
+      accept: "*/*",
+      "User-Agent": "CP-API",
+      "content-type": "application/json",
+      "accept-encoding": "gzip, deflate, br, zstd",
+      "accept-language": "en-US,en;q=0.9",
+      "random-uuid": process.env.UUID,
+      authorization: "",
+      "sec-ch-ua":
+        '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": '"Windows"',
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      Referer: process.env.URL,
+      cookie: process.env.COOKIE,
+    };    
     const gqlBody = {
       query: `query getUserProfile($username: String!) {
         allQuestionsCount {
@@ -31,7 +50,14 @@ router.get("/:username", async (req: Request, res: Response) => {
       variables: { username },
     };
 
-    const response = await axios.post(url, gqlBody);
+    let reqParams = {
+      url: url,
+      method: "POST",
+      headers: headersList,
+      data: JSON.stringify(gqlBody),
+    };
+
+    const response = await axios.request(reqParams);
 
     const data = response.data.data.matchedUser;
 
