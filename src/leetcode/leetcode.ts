@@ -15,7 +15,7 @@ router.get("/:username", async (req: Request, res: Response) => {
       "content-type": "application/json",
       "accept-encoding": "gzip, deflate, br, zstd",
       "accept-language": "en-US,en;q=0.9",
-      "random-uuid": "80e12f5a-e1f3-623e-192e-bcd1a6f25fe3",
+      "random-uuid": process.env.UUID,
       authorization: "",
       "sec-ch-ua":
         '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
